@@ -18,7 +18,9 @@ function App() {
     <div className="App">
       <div>
         {products?.length 
-          ? products.map(product => <ProductItem product={product} />)
+          ? (<div className="products-container">
+              {products.map(product => <ProductItem product={product} />)}
+            </div>)
           : <div>loading...</div>
         }
       </div>
