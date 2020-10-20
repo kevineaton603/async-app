@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import ProductItem from './components/product-item';
+import { getProductData, IProduct } from './data-source';
 
 function App() {
+  const [products, setProducts] = useState<IProduct[]>();
+
+  useEffect(() => {
+    getProductData()
+    .then((res) => {
+      setProducts(res);
+    })
+    .catch(err => console.error(err))
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        {products?.length 
+          ? products.map(product => <ProductItem product={product} />)
+          : <div>loading...</div>
+        }
+      </div>
     </div>
   );
 }
