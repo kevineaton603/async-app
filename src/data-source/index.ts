@@ -35,7 +35,7 @@ function sleep(ms: number) {
 }
 
 export const getProductData: () => Promise<IProduct[]> = async () => {
-    await sleep(2500);
+    await sleep(500);
     return [
         ...Array.from({length: 25}).map(() => ({
             color: faker.commerce.color(),
