@@ -1,8 +1,16 @@
+import { Grid, makeStyles, Paper } from '@material-ui/core';
 import React, { FunctionComponent } from 'react';
 import { IProduct } from '../data-source';
-import './product-item.css'
+import './product-item.css';
+
+const useStyles = makeStyles({
+    paper: {
+      backgroundColor: 'red'
+    },
+  });
 
 const ProductItem: FunctionComponent<{product: IProduct}> = ({ product }) => {
+    const classes = useStyles();
     const {
         color,
         department,
@@ -13,21 +21,16 @@ const ProductItem: FunctionComponent<{product: IProduct}> = ({ product }) => {
         productDescription
     } = product;
     return(
-        <div 
-            style={{
-                paddingBottom: '1em',
-                width: '30%',
-            }}
-            className="product-item"
-        >
-            <div>{productName}</div>
-            <div>{price}</div>
-            {/* <div>{productDescription}</div>*/}
-            <div style={{color}}>{color}</div>
-            <div>{department}</div>
-            <div>{productAdjective}</div>
-            <div>{productMaterial}</div>
-        </div>
+        <Grid item xs={3}>
+            <Paper>
+                <div>{productName}</div>
+                <div>{price}</div>
+                <div style={{color}}>{color}</div>
+                <div>{department}</div>
+                <div>{productAdjective}</div>
+                <div>{productMaterial}</div>
+            </Paper>
+        </Grid>
     )
 }
 
