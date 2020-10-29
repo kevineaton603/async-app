@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
 
 const useGeolocation = () => {
-    const [] = useState({});
 
     useEffect(() => {
         if('geolocation' in navigator) {

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import ProductItem from './components/product-item';
 import ProductTableItem from './components/product-table-item';
-import { getProductData, IProduct } from './data-source';
 import { getCurrentWeatherByCity } from './data-source/weather';
 import useGeolocation from './hooks/use-geolocation';
 import useProductStore from './store/use-product-store';
