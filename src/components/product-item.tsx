@@ -1,24 +1,17 @@
-import { Grid, makeStyles, Paper } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 import React, { FunctionComponent } from 'react';
 import { IProduct } from '../data-source';
 import './product-item.css';
 
-const useStyles = makeStyles({
-    paper: {
-      backgroundColor: 'red'
-    },
-  });
 
 const ProductItem: FunctionComponent<{product: IProduct}> = ({ product }) => {
-    const classes = useStyles();
     const {
         color,
         department,
         productName,
         price,
         productAdjective,
-        productMaterial,
-        productDescription
+        productMaterial
     } = product;
     return(
         <Grid item xs={3}>
